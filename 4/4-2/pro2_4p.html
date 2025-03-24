@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    body{
+      width: 600px;
+    }
+    header{
+      height: 120px;
+      background-color: blue;
+      color: white;
+    }
+    header h1{
+      padding:10px 0 0 20px;
+    }
+    header p{
+      padding-left: 20px;
+    }
+    nav{
+      background-color: skyblue;
+      margin-left: 20px;
+      display: flex;
+      padding-left: 30px;
+    }
+    nav li{
+      list-style-type: none;
+      padding-left: 30px;
+    }
+
+    .article_aside{
+      display: flex;
+    }
+    article{
+      width: 430px;
+      border: 3px solid black;
+    }
+    article div{
+      background-color: lightgray;
+      margin: 20px 0 20px 0;
+    }
+    article h2{
+      margin-left: 10px;
+    }
+    article p{
+      margin-left: 3px;
+    }
+    article hr{
+      width: 95%;
+      align-content: center;
+    }
+    aside{
+      flex-grow: 1;
+      padding-top: 10px;
+      background-color: grey;
+      color: white;
+      margin: 1px 0 20px -3px;
+
+    }
+    aside h3{
+      padding: 10px;
+    }
+    aside p{
+      padding: 3px;
+    }
+    footer{
+      background-color: #65917b;
+      padding: 10px;
+      color: white;
+      margin-top: 1px;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <h1>header</h1>
+  <p>header의 두번째 제목입니다.</p>
+</header>
+<nav>
+  <li>메뉴1</li>
+  <li>메뉴2</li>
+  <li>메뉴3</li>
+  <li>메뉴4</li>
+  <li>메뉴5</li>
+</nav>
+
+<div class="article_aside">
+<article>
+  <div>
+    <h2>article 1</h2>
+    <p>article 1의 본문입니다.</p>
+  </div>
+  <hr>
+  <div>
+    <h2>article 2</h2>
+    <p>article 2의 본문입니다.</p>
+  </div>
+</article>
+<aside>
+  <h3>aside</h3>
+  <p>aside의 본문입니다.</p>
+</aside>
+</div>
+<footer>
+  footer
+</footer>
+</body>
+</html>
