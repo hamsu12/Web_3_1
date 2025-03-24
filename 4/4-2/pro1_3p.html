@@ -2,11 +2,47 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>title</title>
+    <style>
+        h2 {
+            text-align: center;
+            font : normal 24px Verdana;
+            color : yellow;
+            text-shadow : 2px 2px 2px blue;
+        }
+
+        div.box{
+            width: 150px;
+            height: 150px;
+            border: grey;
+            float:left;
+            margin-right: 10px;
+        }
+        #b1{
+            background-image: url("naver.png");
+            background-size: 150px 150px;
+
+        }
+        #b2{
+            background-image: url("google.png");
+            background-size: 150px 150px;
+        }
+        #b3{
+            background-image: url("coupang.png");
+            background-size: 150px 150px;
+        }
+
+        .box:hover {
+            box-shadow: 0 0 10px blue;
+        }
+    </style>
 </head>
 <body>
-<h1>Most Visited Pages</h1>
+<h2>Most Visited Pages</h2>
 <hr>
+<div class="box" id="b1"></div>
+<div class="box" id="b2"></div>
+<div class="box" id="b3"></div>
 
 </body>
 </html>
