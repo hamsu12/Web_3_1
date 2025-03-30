@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            position: absolute;
+            left: 50px;
+            top:50px;
+            width: 150px;
+            height: 150px;
+
+            text-align: center;
+            align-content: center;
+            background-color: red;
+
+            animation-name: move;
+            animation-duration: 10s;
+            animation-iteration-count: infinite;
+        }
+        @keyframes move {
+            0% {background-color: red; left: 50px; top:50px;}
+            20%{background-color: yellow;  left: 300px; top:50px;}
+            60% {background-color: blue; left: 300px; top:300px;}
+            80% {background-color: green; left:50px; top:300px;}
+            100% {background-color: red; left: 50px; top:50px;}
+
+        }
+
+    </style>
+</head>
+<body>
+<div>
+    Animation
+</div>
+</body>
+</html>
