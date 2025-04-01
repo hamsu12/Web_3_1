@@ -3,8 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        @keyframes Animation {
+            from{left: 50px;}
+            to{left: 300px;}
+        }
+        div{
+            position: relative;
+            animation-name: Animation;
+            animation-duration: 3s;
+            animation-iteration-count: 1;
+
+            display: flex;
+
+        }
+        div img{
+            width: 70px;
+        }
+    </style>
 </head>
 <body>
-
+<h2>애니메이션 응용</h2>
+<hr>
+<div><img src="pro5-1.png"><p>질문 있습니다.</p></div>
 </body>
 </html>
