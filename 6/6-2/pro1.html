@@ -2,18 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>자리수 비교</title>
 </head>
 <body>
 <h2>큰 자리수와 낮은 자리수 같은지 비교</h2>
 <hr>
 <script>
-    var n = prompt("숫자 입력");
-    var first = n.charAt(0);
-    var last = n.charAt(n.length-1);
+    var n;
+    while (true) {
+        var input = prompt("숫자를 입력하세요");
+        n = Number(input);
+        if (!isNaN(n) && n >= 10 && Number.isInteger(n)) break;
+        alert("잘못된 입력입니다. 다시 입력해주세요.");
+    }
 
-    if(first==last) document.write(n+": 같음");
-    else document.write(n+": 다름");
+    var last = n % 10;
+    var first = n;
+    while (first >= 10) {
+        first = Math.floor(first / 10);
+    }
+
+    if (first === last) {
+        document.write(n + ": 같음");
+    } else {
+        document.write(n + ": 다름");
+    }
 </script>
 </body>
 </html>
