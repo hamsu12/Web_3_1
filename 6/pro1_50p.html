@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>월화수목금토일</h2>
+<hr>
+<script>
+    var day = prompt("월화수목금토일 중에서 입력하세요","");
+    switch(day){
+        case "토":
+        case "일": document.write(day+"요일은 쉬는 날!");
+            break;
+        case "월":
+        case "화":
+        case "수":
+        case "목":
+        case "금" : document.write(day+"요일은 학교!");
+            break;
+        default: document.write(day+"은 존재하지 않습니다.");
+    }
+</script>
+</body>
+</html>
