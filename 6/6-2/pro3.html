@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        td{
+            width: 70px;
+            height: 70px;
+        }
+    </style>
+    <script>
+        function table(r, c){
+
+            var table = document.createElement("table");
+            table.setAttribute("border", "1");
+
+            for(i=1; i<=r; i++)
+            {
+                var tr = document.createElement("tr");
+                for(j=1; j<=c; j++)
+                {
+                    var td = document.createElement("td");
+                    tr.appendChild(td);
+                }
+                table.appendChild(tr);
+            }
+            document.body.appendChild(table);
+        }
+    </script>
+</head>
+<body>
+<script>
+    var row = prompt("행을 입력하세요");
+    var column = prompt("열을 입력하세요");
+    table(row, column);
+</script>
+</body>
+</html>
