@@ -10,20 +10,19 @@
 <script>
 
     var books = [];
-    var book = new Object()
     for(i=0; i<3; i++)
     {
         var input = prompt("콤마(,)로 분리하면서 책제목 저자 가격 순으로 입력");
-        var result = input.split(", ");
+        var result = input.split(",");
         document.write("<br>",result);
-
-        book.name = result[0].trim();
-        book.owner = result[1].trim();
-        book.price = Number(result[2].trim());
-
+        var book = {
+            name: result[0].trim(),
+            owner: result[1].trim(),
+            price: Number(result[2].trim())
+        };
         books.push(book);
     }
-    books.sort((a,b)=> b.price - a.price);
+    books.sort((a,b) => b.price - a.price);
     document.write("<hr>가장 가격이 비싼 책은"+books[0].name);
 
 
