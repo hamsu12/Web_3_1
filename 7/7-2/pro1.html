@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            display:inline-block;
+            width: 200px;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+<h2>3개의 랜덤한 색 만들기</h2>
+<hr>
+<script>
+    function randColor()
+    {
+        var red = Math.floor(Math.random()*256);
+        var green = Math.floor(Math.random()*256);
+        var blue = Math.floor(Math.random()*256);
+        return `rgb(${red}, ${green}, ${blue})`;
+    }
+
+    for(i=0; i<3; i++)
+    {
+        const color = randColor();
+        document.write(`<div style='background-color:${color};''>${color}</div>`);
+    }
+</script>
+</body>
+</html>

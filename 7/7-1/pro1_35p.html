@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>난수 10개 생성</h2>
+<hr>
+<script>
+
+    const rand = [];
+
+    for(i=0; i<10; i++)
+    {
+        rand[i] = Math.floor(Math.random()*100)+1;
+    }
+
+    document.write(rand.join(" "));
+    document.write("<hr>");
+    rand.sort(function (a,b){
+        if(a > b) return 1;
+        if(a == b) return 0;
+        if(a <b) return -1;
+    });
+    document.write("제일 큰 수는 "+rand[9]);
+    document.write("<hr>");
+    document.write(rand.join(" "));
+
+
+</script>
+</body>
+</html>
