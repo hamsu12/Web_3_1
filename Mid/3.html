@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table{
+            border: 1px solid skyblue;
+            width: 600px;
+            height: 400px;
+            font-size: 40px;
+        }
+        td{
+            width: 80px;
+        }
+        td:hover{
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+<script>
+
+    function randColor()
+    {
+        var red = Math.floor(Math.random()*256);
+        var green = Math.floor(Math.random()*256);
+        var blue = Math.floor(Math.random()*256);
+        return `rgb(${red}, ${green}, ${blue})`;
+    }
+
+    while (true){
+        var rows = prompt("행을 입력하세요 (두 수 곱 <=20)");
+        var cols = prompt("열을 입력하세요 (두 수 곱 <=20)");
+        if((rows*cols)%2!=0){
+            alert("행과 열 곱은 짝수여야 합니다");
+        }else{
+            break;
+        }
+    }
+
+    var arr = [];
+    var rand=[];
+    for(var i = 0 ; i <= (rows * cols) / 2; i++){
+        random=randColor();
+        arr.push(i);
+        arr.push(i);
+        rand.push(random);
+        rand.push(random);
+    }
+
+    document.write("<table border=1>");
+    document.write("<tbody>");
+    for(var i = 0; i < rows; i++){
+        document.write("<tr>");
+        for(var j = 0; j < cols; j++){
+            var index = i * cols + j;
+            if (index < arr.length) {
+                document.write(`<td style="background-color: ${rand[index]}">`, arr[index], "</td>");
+            }
+        }
+        document.write("</tr>");
+    }
+    document.write("</tbody>")
+
+</script>
+</body>
+</html>

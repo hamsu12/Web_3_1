@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            border-radius: 15px;
+            position: fixed;
+            background-color: skyblue;
+            bottom: 0;
+            right: 0;
+            padding: 30px;
+        }
+    </style>
+    <script>
+        function star(n){
+            if (!isNaN(n) && n >=1 && n <= 20 && Number.isInteger(n))
+            {
+                for (i = 1; i <= n; i++) {
+                    for (j = i; j <= n; j++) {
+                        document.write("&nbsp;&nbsp;");
+                    }
+                    for (j = 1; j <= (2 * i - 1); j++) {
+                        document.write("A");
+                    }
+                    document.write("<br>");
+                }
+            }
+            else
+            {
+
+
+                document.write("잘못된 입력입니다. 1 이상 20 이하의 정수를 입력해야 합니다.")
+            }
+        }
+    </script>
+</head>
+<body>
+<h2>피라미드 별 찍기</h2>
+<hr>
+<script>
+
+    var n = (prompt("1 이상 20 이하의 정수로 입력하세요"));
+    n = Number(n);
+    document.write("<div>")
+        star(n);
+    document.write("</div>")
+</script>
+</body>
+</html>
