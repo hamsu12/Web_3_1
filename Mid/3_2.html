@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Matching Color Memory Table</title>
+    <style>
+        table {
+            border: 1px solid skyblue;
+            width: 600px;
+            height: 400px;
+            font-size: 40px;
+            text-align: center;
+            table-layout: fixed;
+        }
+        td {
+            width: 80px;
+            position: relative;
+            color: transparent;
+            transition: color 0.3s ease;
+        }
+        td:hover {
+            color: black;
+        }
+    </style>
+</head>
+<body>
+<script>
+    function randColor() {
+        const red = Math.floor(Math.random() * 256);
+        const green = Math.floor(Math.random() * 256);
+        const blue = Math.floor(Math.random() * 256);
+        return `rgb(${red}, ${green}, ${blue})`;
+    }
+
+    let rows, cols;
+    while (true) {
+        rows = parseInt(prompt("행을 입력하세요 (두 수 곱 <=20)"));
+        cols = parseInt(prompt("열을 입력하세요 (두 수 곱 <=20)"));
+        if ((rows * cols) % 2 !== 0 || rows * cols > 20) {
+            alert("행과 열 곱은 짝수이고 20 이하이어야 합니다.");
+        } else {
+            break;
+        }
+    }
+
+    const totalCells = rows * cols;
+    const pairData = [];
+
+    // 짝을 만들어 숫자와 같은 색을 연결
+    for (let i = 0; i < totalCells / 2; i++) {
+        const color = randColor();
+        const pair = { num: i, color: color };
+        pairData.push(pair, pair); // 같은 값을 두 번 넣어 짝을 만듦
+    }
+
+    // 셔플
+    function shuffle(arr) {
+        for (let i = arr.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+    }
+
+    shuffle(pairData);
+
+    // 테이블 출력
+    document.write("<table>");
+    for (let i = 0; i < rows; i++) {
+        document.write("<tr>");
+        for (let j = 0; j < cols; j++) {
+            const index = i * cols + j;
+            const cell = pairData[index];
+            document.write(`<td style="background-color: ${cell.color};">${cell.num}</td>`);
+        }
+        document.write("</tr>");
+    }
+    document.write("</table>");
+</script>
+</body>
+</html>
