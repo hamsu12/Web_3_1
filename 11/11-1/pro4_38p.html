@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>산수를 풀어봅시다</title>
+  <script>
+    var qArr = document.getElementsByClassName('q');
+    var uArr = [];
+    var correct = [];
+    var op = ['+', '-', '*', '/'];
+    var total = 0;
+
+    function printQuestion() {
+      for (var i = 0; i < qArr.length; i++) {
+        var n1 = Math.floor(Math.random() * 10) + 1;
+        var n2 = Math.floor(Math.random() * 4);
+        var n3 = Math.floor(Math.random() * 10) + 1;
+
+        var q = qArr[i];
+        q.innerHTML = n1 + op[n2] + n3;
+
+        correct[i] = Math.floor(eval(n1 + op[n2] + n3));
+
+        q.style.textDecoration = 'initial';
+        document.getElementsByClassName('u')[i].value = "";
+        document.getElementById('total').innerHTML = 0;
+
+      }
+    }
+
+    function grade() {
+      for (var i = 0; i < qArr.length; i++) {
+        uArr[i] = document.getElementsByClassName('u')[i].value;
+
+        if (correct[i]=== parseInt(uArr[i])) {
+          total++;
+        } else {
+          qArr[i].style.textDecoration = 'line-through';
+        }
+      }
+      document.getElementById('total').innerHTML = total;
+    }
+  </script>
+</head>
+<body onload="printQuestion()">
+<h3>산수를 풀어봅시다.</h3>
+자동으로 문제가 만들어집니다. 답 입력 후 채점 버튼을 누르세요.<br>
+다시 버튼을 누르면 새로운 문제가 출력됩니다.<br>
+나누기 결과는 정수입니다.<br>
+<hr>
+
+<table>
+  <tr><td><span class="q"></span></td><td><input type="text" size="6" class="u"></td></tr>
+  <tr><td><span class="q"></span></td><td><input type="text" size="6" class="u"></td></tr>
+  <tr><td><span class="q"></span></td><td><input type="text" size="6" class="u"></td></tr>
+  <tr><td><span class="q"></span></td><td><input type="text" size="6" class="u"></td></tr>
+</table>
+<input type="button" value="채점" onclick="grade()">
+<span id="total" style="padding-left: 15px; padding-right: 15px">0</span>
+<input type="button" value="다시" onclick="printQuestion()">
+
+</body>
+</html>

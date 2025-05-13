@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    body {
+      background-color: black;
+    }
+    .snow {
+      position: absolute;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+<script>
+  var numSnow = 30;
+  var snows = [];
+  var x = new Array(numSnow);
+  var y = new Array(numSnow);
+  var speedOfFall = new Array(numSnow);
+
+  window.onload = function() {
+    var container = document.body;
+    for (var i = 0; i < numSnow; i++) {
+      var snowflake = document.createElement('div');
+      snowflake.className = 'snow';
+      snowflake.innerHTML = '*';
+      container.appendChild(snowflake);
+      snows.push(snowflake);
+
+      x[i] = Math.random() * window.innerWidth;
+      y[i] = Math.random() * window.innerHeight;
+      speedOfFall[i] = Math.random() * 2 + 2;
+    }
+    setInterval(fall, 50);
+  };
+
+  function fall() {
+    for (var i = 0; i < numSnow; i++) {
+      y[i] += speedOfFall[i];
+      if (y[i] > window.innerHeight) {
+        x[i] = Math.random() * window.innerWidth;
+        y[i] = 0;
+        speedOfFall[i] = Math.random() * 2 + 2;
+      }
+      snows[i].style.top = y[i] + "px";
+      snows[i].style.left = x[i] + "px";
+    }
+  }
+</script>
+</body>
+</html>

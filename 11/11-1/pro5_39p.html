@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script>
+    var qArr, uArr = [], correct = [], op = ['+', '-', '*', '/'];
+    var total = 0;
+    var countdown, timerInterval;
+
+    function printQuestion() {
+      qArr = document.getElementsByClassName('q');
+      total = 0;
+
+      for (var i = 0; i < qArr.length; i++) {
+        var n1 = Math.floor(Math.random() * 10) + 1;
+        var n2 = Math.floor(Math.random() * 4);
+        var n3 = Math.floor(Math.random() * 10) + 1;
+
+        if (op[n2] === '/') {
+          n1 = n3 * (Math.floor(Math.random() * 3) + 1);
+        }
+
+        qArr[i].innerHTML = n1 + op[n2] + n3;
+        correct[i] = Math.floor(eval(n1 + op[n2] + n3));
+
+        qArr[i].style.textDecoration = 'initial';
+        document.getElementsByClassName('u')[i].value = "";
+      }
+
+      document.getElementById('total').innerHTML = 0;
+
+      clearInterval(timerInterval);
+      countdown = 10;
+      document.getElementById('timer').innerText = `남은 시간: ${countdown}초`;
+
+      timerInterval = setInterval(() => {
+        countdown--;
+        document.getElementById('timer').innerText = `남은 시간: ${countdown}초`;
+
+        if (countdown <= 0) {
+          clearInterval(timerInterval);
+        }
+      }, 1000);
+
+      setTimeout(grade, 10000);
+    }
+
+    function grade() {
+      for (var i = 0; i < qArr.length; i++) {
+        uArr[i] = document.getElementsByClassName('u')[i].value;
+
+        if (correct[i] === parseInt(uArr[i])) {
+          total++;
+        } else {
+          qArr[i].style.textDecoration = 'line-through';
+        }
+      }
+
+      document.getElementById('total').innerHTML = total;
+    }
+  </script>
+</head>
+<body onload="printQuestion()">
+<h3>산수 문제를 풀어봅시다.</h3>
+<p>문제는 자동으로 생성되며, 10초가 지나면 자동 채점됩니다.</p>
+<div id="timer" style="margin-bottom: 10px; font-weight: bold;">남은 시간: 10초</div>
+<hr>
+
+<table>
+  <tr><td><span class="q"></span></td><td><input type="text" size="6" class="u"></td></tr>
+  <tr><td><span class="q"></span></td><td><input type="text" size="6" class="u"></td></tr>
+  <tr><td><span class="q"></span></td><td><input type="text" size="6" class="u"></td></tr>
+  <tr><td><span class="q"></span></td><td><input type="text" size="6" class="u"></td></tr>
+</table>
+
+<input type="button" value="다시" onclick="printQuestion()">
+<span id="total" style="padding-left: 15px; padding-right: 15px">0</span>
+
+</body>
+</html>

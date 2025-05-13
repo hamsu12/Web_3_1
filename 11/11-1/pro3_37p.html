@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    div {
+      display: inline-block;
+      width: 100px; height: 25px;
+      border: solid 1px black;
+      background-color: aliceblue
+    }
+  </style>
+  <script>
+    var time = null;
+    function clickTime() {
+      if (time != null) {
+        clearInterval(time);
+        time = null;
+        document.getElementById('clock').style.color = 'gray';
+      } else {
+        time = setInterval('printTime(clock)', 100);
+        document.getElementById('clock').style.color = 'black';
+      }
+    }
+
+    function startTime() {
+      var clock = document.getElementById('clock');
+      printTime(clock);
+      time = setInterval('printTime(clock)', 100);
+    }
+
+    function printTime(e) {
+      var date = new Date();
+      e.innerHTML = date.toLocaleTimeString();
+    }
+  </script>
+</head>
+<body onload="startTime()">
+<h3>div 태그에 시계 만들기</h3>
+<p>시계를 클릭하면 시계가 멈추고 다시 클릭하면 가기 시작한다</p>
+<hr>
+<div id="clock" onclick="clickTime()"></div>
+
+</body>
+</html>
