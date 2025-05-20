@@ -92,6 +92,15 @@
     const lineWidth = parseInt(document.getElementById("line").value);
     const color = document.getElementById("color").value;
 
+    if (
+            x < 0 || y < 0 ||
+            x + w > canvas.width ||
+            y + h > canvas.height
+    ) {
+      alert("캔버스 안에 그려주세요 !!");
+      return;
+    }
+
     ctx.lineWidth = lineWidth;
     ctx.strokeStyle = color;
     ctx.strokeRect(x, y, w, h);
@@ -101,6 +110,7 @@
     ctx.clearRect(0, 0, canvas.width, canvas.height);
   }
 </script>
+
 </body>
 
 </html>
